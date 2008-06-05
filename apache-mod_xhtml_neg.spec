@@ -7,7 +7,7 @@
 Summary:	An XHTML content negotiation module for Apache
 Name:		apache-%{mod_name}
 Version:	1.0a
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Servers
 License:	Apache License
 URL:		http://mod-xhtml-neg.sourceforge.net/
