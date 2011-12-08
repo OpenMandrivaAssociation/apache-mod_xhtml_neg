@@ -36,7 +36,7 @@ content as text/html documents.
 
 cp %{SOURCE1} %{mod_conf}
 
-find -type f -exec dos2unix -U {} \;
+find -type f -exec dos2unix {} \;
 
 %build
 
