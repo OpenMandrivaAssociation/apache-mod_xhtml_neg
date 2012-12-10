@@ -7,7 +7,7 @@
 Summary:	An XHTML content negotiation module for Apache
 Name:		apache-%{mod_name}
 Version:	1.0a
-Release:	%mkrel 9
+Release:	9
 Group:		System/Servers
 License:	Apache License
 URL:		http://mod-xhtml-neg.sourceforge.net/
@@ -21,7 +21,6 @@ Requires:	apache-conf >= %{apache_version}
 Requires:	apache >= %{apache_version}
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	dos2unix
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This module provides content negotiation facilities for XHTML documents that
@@ -40,10 +39,9 @@ find -type f -exec dos2unix {} \;
 
 %build
 
-%{_sbindir}/apxs -c mod_xhtml_neg.c lookupa.c
+%{_bindir}/apxs -c mod_xhtml_neg.c lookupa.c
         
 %install
-rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}/apache-extramodules
 install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
@@ -64,11 +62,51 @@ if [ "$1" = "0" ]; then
 fi
 
 %clean
-rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root)
 %doc LICENSE README mod_xhtml_neg.html
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/%{mod_conf}
 %attr(0755,root,root) %{_libdir}/apache-extramodules/%{mod_so}
 
+
+
+%changelog
+* Sat Feb 11 2012 Oden Eriksson <oeriksson@mandriva.com> 1.0a-9mdv2012.0
++ Revision: 773241
+- rebuild
+
+* Tue May 24 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0a-8
++ Revision: 678445
+- mass rebuild
+
+* Sun Oct 24 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0a-7mdv2011.0
++ Revision: 588091
+- rebuild
+
+* Mon Mar 08 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0a-6mdv2010.1
++ Revision: 516274
+- rebuilt for apache-2.2.15
+
+* Sat Aug 01 2009 Oden Eriksson <oeriksson@mandriva.com> 1.0a-5mdv2010.0
++ Revision: 406685
+- rebuild
+
+* Tue Jan 06 2009 Oden Eriksson <oeriksson@mandriva.com> 1.0a-4mdv2009.1
++ Revision: 326278
+- rebuild
+
+* Mon Jul 14 2008 Oden Eriksson <oeriksson@mandriva.com> 1.0a-3mdv2009.0
++ Revision: 235133
+- rebuild
+
+* Thu Jun 05 2008 Oden Eriksson <oeriksson@mandriva.com> 1.0a-2mdv2009.0
++ Revision: 215676
+- fix rebuild
+
+* Sun May 18 2008 Oden Eriksson <oeriksson@mandriva.com> 1.0a-1mdv2009.0
++ Revision: 208663
+- import apache-mod_xhtml_neg
+
+
+* Sun May 18 2008 Oden Eriksson <oeriksson@mandriva.com> 1.0a-1mdv2009.0
+- initial Mandriva package
