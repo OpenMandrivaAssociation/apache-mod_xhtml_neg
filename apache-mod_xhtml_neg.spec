@@ -10,7 +10,7 @@ Version:	1.0a
 Release:	10
 Group:		System/Servers
 License:	Apache License
-URL:		http://mod-xhtml-neg.sourceforge.net/
+URL:		https://mod-xhtml-neg.sourceforge.net/
 Source0:	http://dfn.dl.sourceforge.net/sourceforge/mod-xhtml-neg/%{mod_name}2-%{version}.tar.gz
 Source1:	%{mod_conf}
 Requires(pre): rpm-helper
